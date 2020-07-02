@@ -5,6 +5,9 @@ FROM node:current-alpine3.10
 LABEL name="node-puppeteer"
 LABEL maintainer="Ahmad Nassri <ahmad@ahmadnassri.com>"
 
+# ---- install build toolchain ----
+RUN apk add --no-cache python make g++
+
 # ---- install latest chromium ----
 RUN apk add --no-cache \
       chromium \
@@ -14,6 +17,7 @@ RUN apk add --no-cache \
       harfbuzz \
       ca-certificates \
       ttf-freefont
+
 
 # ---- tell puppeteer to skip installing chrome ----
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
