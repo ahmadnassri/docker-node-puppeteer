@@ -1,0 +1,38 @@
+name: publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        docker:
+          - name: docker hub
+            registry: registry.hub.docker.com
+            password: DOCKER_TOKEN
+            repository: ahmadnassri/node-puppeteer
+
+          - name: github package registry
+            password: GITHUB_TOKEN
+            registry: docker.pkg.github.com
+            repository: ${{ github.event.repository.full_name }}/node-puppeteer
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - id: version
+        run: echo "::set-output name=number::${{ github.event.release.tag_name }}"
+
+      - name: ${{ matrix.docker.name }}
+        uses: docker/build-push-action@v1
+        with:
+          add_git_labels: true
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets[matrix.docker.password] }}
+          registry: ${{ matrix.docker.registry }}
+          repository: ${{ matrix.docker.repository }}
+          tags: latest, ${{ steps.version.outputs.number }}
