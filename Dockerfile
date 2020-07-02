@@ -15,6 +15,9 @@ RUN apt-get update \
       --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
+# ---- tell puppeteer to skip installing chromium ----
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
 # ---- install puppeteer so it's available in the container ----
 RUN npm i puppeteer \
