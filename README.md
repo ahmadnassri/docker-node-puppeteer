@@ -17,7 +17,7 @@ create a `docker-compose.yml` with the following:
 version: '3'
 
 services:
-  jekyll:
+  puppeteer:
     image: ahmadnassri/node-puppeteer
     volumes:
       - ${PWD}:/app
