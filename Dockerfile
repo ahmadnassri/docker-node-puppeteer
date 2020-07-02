@@ -6,7 +6,7 @@ LABEL name="node-puppeteer"
 LABEL maintainer="Ahmad Nassri <ahmad@ahmadnassri.com>"
 
 # ---- install build toolchain ----
-RUN apk add --no-cache python make g++
+RUN apk add --no-cache python make g++ apk inotify-tools
 
 # ---- install latest chromium ----
 RUN apk add --no-cache \
