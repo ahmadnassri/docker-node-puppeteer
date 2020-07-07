@@ -1,8 +1,8 @@
 # Node & Puppeteer Container
 
-[![][lint-badge]][lint-link]
-[![][release-badge]][release-link]
-[![][publish-badge]][publish-link]
+[![lint status][lint-badge]][lint-link]
+[![release status][release-badge]][release-link]
+[![publish status][publish-badge]][publish-link]
 
 [lint-badge]: https://github.com/ahmadnassri/docker-node-puppeteer/workflows/lint/badge.svg
 [lint-link]: https://github.com/ahmadnassri/docker-node-puppeteer/actions?query=workflow:lint
