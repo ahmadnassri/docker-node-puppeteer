@@ -1,6 +1,17 @@
 # Node & Puppeteer Container
 
-a light container with both [Node](https://nodejs.org/en/) & [Puppeteer](https://pptr.dev/)
+[![][lint-badge]][lint-link]
+[![][release-badge]][release-link]
+[![][publish-badge]][publish-link]
+
+[lint-badge]: https://github.com/ahmadnassri/docker-node-puppeteer/workflows/lint/badge.svg
+[lint-link]: https://github.com/ahmadnassri/docker-node-puppeteer/actions?query=workflow:lint
+[release-badge]: https://github.com/ahmadnassri/docker-node-puppeteer/workflows/release/badge.svg
+[release-link]: https://github.com/ahmadnassri/docker-node-puppeteer/actions?query=workflow:release
+[publish-badge]: https://github.com/ahmadnassri/docker-node-puppeteer/workflows/publish/badge.svg
+[publish-link]: https://github.com/ahmadnassri/docker-node-puppeteer/actions?query=workflow:publish
+
+a slim container with both [Node](https://nodejs.org/en/) & [Puppeteer](https://pptr.dev/)
 
 ## Flavors
 

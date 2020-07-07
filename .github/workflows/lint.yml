@@ -6,9 +6,9 @@ on:
       - master
 
 jobs:
-  super-linter:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      - uses: docker://github/super-linter:v2.0.0
+      - uses: docker://github/super-linter
