@@ -7,7 +7,7 @@ LABEL maintainer="Ahmad Nassri <ahmad@ahmadnassri.com>"
 
 # ---- install latest chrome dev package and fonts ----
 RUN apt-get update \
-    && apt-get install -y g++ make python wget gnupg --no-install-recommends \
+    && apt-get install -y g++ make python wget gnupg \
     && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
     && apt-get update \
@@ -17,7 +17,7 @@ RUN apt-get update \
 
 # ---- tell puppeteer to skip installing chromium ----
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
-    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-unstable
 
 # ---- Add user so we don't need --no-sandbox ----
 RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
