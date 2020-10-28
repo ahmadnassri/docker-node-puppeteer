@@ -41,7 +41,7 @@ MD013:
   stern: true
 
 # Dollar signs used before commands without showing output
-MD014: true
+MD014: false
 
 # No space after hash on atx style heading
 MD018: true
@@ -101,15 +101,14 @@ MD032: true
 
 # inline HTML
 MD033:
-  allowed_elements: []
+  allowed_elements: [details, summary]
 
 # Bare URL used
 MD034: true
 
 # Horizontal rule style
 MD035:
-  style: "---"
-
+  style: "----"
 
 # Emphasis used instead of a heading
 MD036:
