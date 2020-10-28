@@ -65,11 +65,11 @@ jobs:
             ${{ github.repository_owner }}/${{ steps.hub.outputs.name }}:latest
             ${{ github.repository_owner }}/${{ steps.hub.outputs.name }}:${{ needs.release.outputs.release-version-major }}
             ${{ github.repository_owner }}/${{ steps.hub.outputs.name }}:${{ needs.release.outputs.release-version }}
-            ghcr.io/${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:${{ needs.release.outputs.release-version-major }}
-            ghcr.io/${{ github.repository }}:${{ needs.release.outputs.release-version }}
+            ghcr.io/${{ github.repository_owner }}/${{ steps.hub.outputs.name }}:latest
+            ghcr.io/${{ github.repository_owner }}/${{ steps.hub.outputs.name }}:${{ needs.release.outputs.release-version-major }}
+            ghcr.io/${{ github.repository_owner }}/${{ steps.hub.outputs.name }}:${{ needs.release.outputs.release-version }}
           labels: |
-            org.opencontainers.image.title=${{ github.event.repository.name }}
+            org.opencontainers.image.title=${{ steps.hub.outputs.name }}
             org.opencontainers.image.url=${{ github.event.repository.html_url }}
             org.opencontainers.image.version=${{ needs.release.outputs.release-version }}
             org.opencontainers.image.source=${{ github.event.repository.clone_url }}
