@@ -22,6 +22,7 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 # ---- Add user so we don't need --no-sandbox ----
 RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
     && mkdir -p /home/pptruser/Downloads \
+    && mkdir -p /home/pptruser/.npm-global/lib \
     && chown -R pptruser:pptruser /home/pptruser
 
 # ---- configure global node_modules path
