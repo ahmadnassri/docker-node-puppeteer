@@ -28,11 +28,13 @@ RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
 ENV NPM_CONFIG_PREFIX=/home/pptruser/.npm-global \
     PATH=$PATH:/home/pptruser/.npm-global/bin
 
-# ---- install puppeteer so it's available in the container ----
-RUN npm install --global puppeteer
-
 # ---- run everything as non-privileged user ----
 USER pptruser
+
+# ---- install dependencies globally ----
+WORKDIR /home/pptruser
+COPY package.json package-lock.json /home/pptruser/
+RUN npm install --global
 
 # ---- create app directory ----
 WORKDIR /app
