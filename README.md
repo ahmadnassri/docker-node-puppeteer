@@ -1,30 +1,21 @@
 # Node & Puppeteer Container
 
-[![lint status][lint-badge]][lint-link]
-[![release status][release-badge]][release-link]
-[![publish status][publish-badge]][publish-link]
+a slim container with both Node.js & Puppeteer
 
-[lint-badge]: https://github.com/ahmadnassri/docker-node-puppeteer/workflows/lint/badge.svg
-[lint-link]: https://github.com/ahmadnassri/docker-node-puppeteer/actions?query=workflow:lint
-[release-badge]: https://github.com/ahmadnassri/docker-node-puppeteer/workflows/release/badge.svg
-[release-link]: https://github.com/ahmadnassri/docker-node-puppeteer/actions?query=workflow:release
-[publish-badge]: https://github.com/ahmadnassri/docker-node-puppeteer/workflows/publish/badge.svg
-[publish-link]: https://github.com/ahmadnassri/docker-node-puppeteer/actions?query=workflow:publish
+[![license][license-img]][license-url]
+[![release][release-img]][release-url]
+[![super linter][super-linter-img]][super-linter-url]
+[![semantic][semantic-img]][semantic-url]
 
-a slim container with both [Node](https://nodejs.org/en/) & [Puppeteer](https://pptr.dev/)
-
-## Flavors
-
-The image is published to two registries:
-
-- [Docker Hub](https://hub.docker.com/r/ahmadnassri/node-puppeteer)
-- [GitHub Package Registry](https://github.com/ahmadnassri/docker-node-puppeteer/packages)
+[![size][size-img]][size-url]
+[![docker][docker-img]][docker-url]
+[![github][github-img]][github-url]
 
 ## Usage
 
 create a `docker-compose.yml` with the following:
 
-```yaml
+``` yaml
 version: '3'
 
 services:
@@ -35,9 +26,30 @@ services:
 ```
 
 > #### Volumes
->
+> 
 > Map the the directory where will copy your application files to `/app`
->
-> #### Image
->
-> For GitHub Package Registry, use `image: docker.pkg.github.com/ahmadnassri/node-puppeteer/node-puppeteer`
+
+----
+> Author: [Ahmad Nassri](https://www.ahmadnassri.com/) &bull;
+> Twitter: [@AhmadNassri](https://twitter.com/AhmadNassri)
+
+[license-url]: LICENSE
+[license-img]: https://badgen.net/github/license/ahmadnassri/docker-node-puppeteer
+
+[release-url]: https://github.com/ahmadnassri/docker-node-puppeteer/releases
+[release-img]: https://badgen.net/github/release/ahmadnassri/docker-node-puppeteer
+
+[super-linter-url]: https://github.com/ahmadnassri/docker-node-puppeteer/actions?query=workflow%3Asuper-linter
+[super-linter-img]: https://github.com/ahmadnassri/docker-node-puppeteer/workflows/super-linter/badge.svg
+
+[semantic-url]: https://github.com/ahmadnassri/docker-node-puppeteer/actions?query=workflow%3Arelease
+[semantic-img]: https://badgen.net/badge/📦/semantically%20released/blue
+
+[size-url]: https://hub.docker.com/r/ahmadnassri/node-puppeteer
+[size-img]: https://badgen.net/docker/size/ahmadnassri/node-puppeteer
+
+[docker-url]: https://hub.docker.com/r/ahmadnassri/node-puppeteer
+[docker-img]: https://badgen.net/badge/icon/docker%20hub?icon=docker&label
+
+[github-url]: https://github.com/users/ahmadnassri/packages/container/package/node-puppeteer
+[github-img]: https://badgen.net/badge/icon/github%20registry?icon=github&label
