@@ -3,17 +3,29 @@ updates:
   - package-ecosystem: docker
     open-pull-requests-limit: 10
     directory: /
+    commit-message:
+      prefix: build
+      prefix-development: chore
+      include: scope
     schedule:
       interval: daily
 
   - package-ecosystem: npm
     open-pull-requests-limit: 10
     directory: /
+    commit-message:
+      prefix: build
+      prefix-development: chore
+      include: scope
     schedule:
       interval: daily
 
   - package-ecosystem: bundler
     open-pull-requests-limit: 10
     directory: /
+    commit-message:
+      prefix: build
+      prefix-development: chore
+      include: scope
     schedule:
       interval: daily
