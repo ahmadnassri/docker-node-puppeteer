@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "version": "0.0.0-semantically-released",
+  "name": "docker-node-puppeteer",
+  "dependencies": {
+    "puppeteer": "^5.4.1"
+  }
+}
