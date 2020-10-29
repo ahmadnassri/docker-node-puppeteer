@@ -1,0 +1,7 @@
+version: 2.0
+
+id: node-puppeteer
+about:
+  title: Node & Puppeteer Container
+  description: a slim container with both Node.js & Puppeteer
+  repository: ahmadnassri/docker-node-puppeteer
