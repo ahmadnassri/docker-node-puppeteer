@@ -34,8 +34,8 @@ USER pptruser
 
 # ---- install dependencies globally ----
 WORKDIR /home/pptruser
-COPY package.json package-lock.json /home/pptruser/
-RUN npm install --global
+COPY src/* /home/pptruser/
+RUN node /home/pptruser/install.js
 
 # ---- create app directory ----
 WORKDIR /app
