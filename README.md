@@ -26,7 +26,7 @@ services:
 ```
 
 > #### Volumes
-> 
+>
 > Map the the directory where will copy your application files to `/app`
 
 ----
