@@ -15,9 +15,6 @@ jobs:
     # run on external PRs, but not on our internal PRs
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
 
-    steps:
-      - run: echo ::info ::de-duplicate ran successfully
-
   lint:
     timeout-minutes: 5
 
