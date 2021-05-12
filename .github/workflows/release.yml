@@ -15,7 +15,7 @@ jobs:
       release-version-minor: ${{ steps.release.outputs.release-version-minor }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.4
       - id: release
         uses: ahmadnassri/action-semantic-release@v1
         with:
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.4
       - uses: actions/cache@v2.1.5
         with:
           path: /tmp/.buildx-cache
