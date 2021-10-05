@@ -3,12 +3,12 @@ version: '3.8'
 services:
   # ---- super-linter ---- #
   lint:
-    image: github/super-linter:v4
+    image: github/super-linter:slim-v4
     volumes:
       - ./:/tmp/lint
     environment:
-      RUN_LOCAL: 'true'
       LOG_LEVEL: 'ERROR'
+      RUN_LOCAL: 'true'
       MULTI_STATUS: 'false'
 
   # ---- readme generator ---- #
