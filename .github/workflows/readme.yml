@@ -43,11 +43,11 @@ jobs:
 
             const content = readFileSync(`${process.env.GITHUB_WORKSPACE}/${path}`)
 
-            const { data } = await github.repos.getContent({ ...context.repo, path })
+            const { data } = await github.rest.repos.getContent({ ...context.repo, path })
 
             if (Buffer.from(data.content, 'base64').compare(content) === 0) return
 
-            await github.repos.createOrUpdateFileContents({...context.repo, path,
+            await github.rest.repos.createOrUpdateFileContents({...context.repo, path,
               sha: data.sha,
               message: 'docs(readme): update readme',
               content: content.toString('base64')
