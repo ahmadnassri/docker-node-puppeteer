@@ -1,5 +1,5 @@
 # ---- base image ----
-FROM node:16.10.0-stretch-slim
+FROM node:17.0.0-stretch-slim
 
 # ---- meta data ----
 LABEL name="node-puppeteer"
