@@ -2,53 +2,44 @@
 # Note: this file is automatically managed in template-docker #
 # ----------------------------------------------------------- #
 
+on:
+  workflow_dispatch:
+
+  push:
+    paths:
+      - README.md
+
 name: readme
 
-on:
-  push:
-    branches: master
-    paths:
-      - docs/**
-      - colophon.yml
-      - .github/workflows/readme.yml
-
 jobs:
-  readme:
-    timeout-minutes: 5
+  publish:
+    timeout-minutes: 10
 
     runs-on: ubuntu-latest
 
+    env:
+      HAS_DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN != '' }}
+
     steps:
-      - uses: actions/checkout@v2.3.5
-      - uses: docker://pandoc/core:2.11.4
-        with:
-          args: >-
-            --metadata-file=colophon.yml
-            --template=docs/README.template
-            --output=README.md
-            --from=gfm
-            --to=gfm
-            --fail-if-warnings
-            --wrap=preserve
-            --reference-links
-            docs/README.md
+      - uses: actions/checkout@v3
+        if: ${{ env.HAS_DOCKER_TOKEN == 'true' }}
 
-      - uses: actions/github-script@v5
-        with:
-          github-token: ${{secrets.GH_TOKEN}}
-          script: |
-            const { readFileSync } = require('fs')
+      - id: image
+        run: echo "::set-output name=name::$(basename "${GITHUB_REPOSITORY/docker-//}")"
 
-            const path = 'README.md'
-
-            const content = readFileSync(`${process.env.GITHUB_WORKSPACE}/${path}`)
-
-            const { data } = await github.rest.repos.getContent({ ...context.repo, path })
-
-            if (Buffer.from(data.content, 'base64').compare(content) === 0) return
-
-            await github.rest.repos.createOrUpdateFileContents({...context.repo, path,
-              sha: data.sha,
-              message: 'docs(readme): update readme',
-              content: content.toString('base64')
-            })
+      - name: update docker hub
+        run: |
+          JWT=$(curl --silent --data "username=${{ github.repository_owner }}&password=${{ secrets.DOCKER_TOKEN }}" https://hub.docker.com/v2/users/login/ | jq -r .token)
+          jq \
+            --null-input \
+            --arg description "${{ github.event.repository.description }}" \
+            --arg readme "$(cat README.md)" \
+            '{"description": $description, "full_description": $readme}' \
+          | \
+          curl \
+            --silent \
+            --request PATCH \
+            --header "Authorization: JWT ${JWT}" \
+            --header "Content-Type: application/json" \
+            --data @- \
+            "https://hub.docker.com/v2/repositories/${{ github.repository_owner }}/${{ steps.image.outputs.name }}"
