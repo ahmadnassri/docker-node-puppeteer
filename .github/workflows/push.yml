@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: ahmadnassri/action-metadata@v1
+      - uses: ahmadnassri/action-metadata@v2
         id: metadata
 
       - id: image
