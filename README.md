@@ -8,6 +8,9 @@ a slim container with both Node.js & Puppeteer
 [![docker][docker-img]][docker-url]
 [![github][github-img]][github-url]
 
+> **WARNING**  
+> DEPRECATED, please use [Playwright][] instead
+
 ## Usage
 
 create a `docker-compose.yml` with the following:
@@ -26,6 +29,8 @@ services:
 >
 > Map the the directory where will copy your application files to `/app`
 
+  [Playwright]: https://playwright.dev/
+
 ----
 > Author: [Ahmad Nassri](https://www.ahmadnassri.com/) &bull;
 > Twitter: [@AhmadNassri](https://twitter.com/AhmadNassri)
@@ -37,7 +42,7 @@ services:
 [release-img]: https://badgen.net/github/release/ahmadnassri/docker-node-puppeteer
 
 [size-url]: https://hub.docker.com/r/ahmadnassri/node-puppeteer
-[size-img]: https://badgen.net/docker/size/ahmadnassri/node-puppeteer
+[size-img]: https://badgen.net/docker/size/ahmadnassri/node-puppeteer?label=image%20size
 
 [docker-url]: https://hub.docker.com/r/ahmadnassri/node-puppeteer
 [docker-img]: https://badgen.net/badge/icon/docker%20hub?icon=docker&label

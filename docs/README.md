@@ -1,3 +1,6 @@
+> **WARNING**  
+> DEPRECATED, please use [Playwright](https://playwright.dev/) instead
+
 ## Usage
 
 create a `docker-compose.yml` with the following:
